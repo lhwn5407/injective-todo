@@ -1,0 +1,30 @@
+version: '3.7'
+
+services:
+  app:
+    image: node:14.16.1-buster-slim
+    command: sh -c "yarn install && yarn run dev"
+    ports:
+      - 3000:3000
+      - 9229:9229
+    working_dir: /app
+    volumes:
+      - ./:/app
+    environment:
+      MYSQL_HOST: mysql
+      MYSQL_USER: root
+      MYSQL_PASSWORD: 2kj3h4lkjh2hlkj1
+      MYSQL_DB: todos
+
+  mysql:
+    image: mysql:5.7
+    ports:
+      - 3306:3306
+    volumes:
+      - mysql-data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: 2kj3h4lkjh2hlkj1
+      MYSQL_DATABASE: todos
+
+volumes: #
+  mysql-data:

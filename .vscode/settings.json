@@ -1,0 +1,6 @@
+{
+  "editor.tabSize": 2,
+  // 모든 언어에 대한 기본 포매터를 prettier로 지정
+  // editor.formatOnSave 시 사용.
+  "editor.formatOnSave": true
+}
